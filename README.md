@@ -1,16 +1,21 @@
 # notes_app
 
-A new Flutter project.
+# Sample Note Taking App
+Create A Note Taking App with latest version of flutter
+Must have following feature
+1. Able to add, edit, delete Notes* -> Done
+2. Able to List and to Sort notes by date -> Done
+3. Google Login -> Done
+4. Firebase Cloud Storage or Realtime Database should be used to store user’s Notes item -> Done
+5. Apple Login (iOS Only) -> Done but not tested
+6.Encrypt Notes (optional) -> Done
+7. Search In Notes Feature (optional) -> Done
+8.Share Notes with other user inside the app (there will be separate tab by name of Shared Notes where
+user can see notes shared by others) (optional) -> Done
 
-## Getting Started
+# Sample Output:
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+https://github.com/user-attachments/assets/43b3a54c-646b-4508-b61e-594335f4e562
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
