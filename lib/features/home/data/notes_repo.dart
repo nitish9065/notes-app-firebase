@@ -47,7 +47,8 @@ class NotesRepository {
       QuerySnapshot<Map<String, dynamic>> snapshot) async {
     return Future.wait(
       snapshot.docs.map((doc) async {
-        final content = await _encryption.decrypt(doc['content']);
+        final content =
+            await _encryption.decrypt(doc['content'], doc.data()['userId']!);
         final data = doc.data()..['content'] = content;
         return Note.fromMap(doc.id, data);
       }),
@@ -60,7 +61,7 @@ class NotesRepository {
       required String title,
       required String content,
       List<String> sharedUsers = const []}) async {
-    final encryptedContent = await _encryption.encrypt(content);
+    final encryptedContent = await _encryption.encrypt(content, userId);
     if (noteId != null) {
       await _notes.doc(noteId).set({
         'title': title,
@@ -87,7 +88,8 @@ class NotesRepository {
   Future<Note?> getNote(String noteId) async {
     final doc = await _notes.doc(noteId).get();
     if (doc.data() == null) return null;
-    final content = await _encryption.decrypt(doc.data()!['content']);
+    final content = await _encryption.decrypt(
+        doc.data()!['content'], doc.data()!['userId']!);
     final data = doc.data()!..['content'] = content;
     return Note.fromMap(
       doc.id,

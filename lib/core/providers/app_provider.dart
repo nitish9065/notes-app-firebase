@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:notes_app/features/auth/data/auth_repository.dart';
 import 'package:notes_app/features/home/data/encryption_service.dart';
@@ -51,7 +50,5 @@ final notesRepositoryProvider = Provider<NotesRepository>((ref) {
 
 // encryption_service.dart
 final encryptionServiceProvider = Provider<EncryptionService>((ref) {
-  return EncryptionService(const FlutterSecureStorage());
+  return EncryptionService();
 });
-
-
