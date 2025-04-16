@@ -31,10 +31,10 @@ GoRouter appRoute(Ref ref) {
             path: '/:id',
             builder: (context, state) {
               final id = state.pathParameters['id'];
-              final map = state.extra as Map<String, bool>;
+              final map = state.extra as Map<String, bool>?;
               return NoteEditorScreen(
                 noteId: id == 'null' ? null : id,
-                lockActions: map['lockAction'] ?? false,
+                lockActions: map?['lockAction'] ?? false,
               );
             },
           )
@@ -47,8 +47,8 @@ GoRouter appRoute(Ref ref) {
           GoRoute(
             path: '/note',
             builder: (context, state) {
-              final map = state.extra as Map<String, bool>;
-              return UserSharedNoteScreen(map['showShared'] ?? false);
+              final map = state.extra as Map<String, bool>?;
+              return UserSharedNoteScreen(map?['showShared'] ?? false);
             },
           )
         ],
